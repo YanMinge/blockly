@@ -767,6 +767,8 @@ sensors.key.arduino = {
     ports : 'CONFIGURATION'
 };
 
+sensors.key.raspberrypi = sensors.key.arduino;
+
 sensors.key.mbot = {
     title : 'KEY',
     modes : [ {
@@ -837,6 +839,20 @@ sensors.light.arduino = {
     } ],
     ports : 'CONFIGURATION'
 };
+sensors.light.raspberrypi = {
+    title : 'LIGHT',
+    modes : [ {
+        name : 'VALUE',
+        type : 'Number',
+        unit : 'PERCENT'
+    },{
+        name : 'LIGHT_DETECTED',
+        type : 'Boolean',
+        // unit : 'PERCENT'
+    } ],
+    ports : 'CONFIGURATION'
+};
+
 sensors.light.sensebox = sensors.light.arduino;
 sensors.light.botnroll = {
     title : 'LIGHT',
@@ -938,6 +954,8 @@ sensors.motion.arduino = {
     ports : 'CONFIGURATION'
 };
 
+sensors.motion.raspberrypi = sensors.motion.arduino;
+
 sensors.motion.mbot = {
     title : 'MOTION',
     modes : [ {
@@ -964,7 +982,36 @@ sensors.out.arduino = {
     } ],
     ports : 'CONFIGURATION'
 };
+
 sensors.out.sensebox = sensors.out.arduino;
+sensors.out.raspberrypi = {
+  title : 'OUT',
+  modes : [{
+      name : 'DIGITAL',
+      type : 'Boolean',
+      value : '1',
+      op : 'NUM_EQ'
+  } ],
+  ports : 'CONFIGURATION'
+};
+
+sensors.smoothedout = {};
+sensors.smoothedout.raspberrypi = {
+  title : 'SMOOTHEDOUT',
+  modes : [{
+      name : 'VALUE',
+      type : 'Number',
+      value : '1',
+      op : 'NUM_EQ'
+  }, {
+      name : 'IS_ACTIVE',
+      type : 'Boolean',
+      value : '1',
+      op : 'NUM_EQ'
+  } ],
+  ports : 'CONFIGURATION'
+};
+
 sensors.pin = {};
 sensors.pin.calliope = {
     title : 'PIN',
@@ -1215,7 +1262,7 @@ sensors.timer.arduino = sensors.timer.ev3;
 sensors.timer.festobionic = sensors.timer.ev3;
 sensors.timer.mbot = sensors.timer.ev3;
 sensors.timer.sensebox = sensors.timer.ev3;
-
+sensors.timer.raspberrypi = sensors.timer.ev3;
 
 sensors.touch = {};
 sensors.touch.ev3 = {
@@ -1289,6 +1336,8 @@ sensors.ultrasonic.calliope = {
     } ],
     ports : 'CONFIGURATION'
 };
+
+sensors.ultrasonic.raspberrypi = sensors.ultrasonic.calliope;
 sensors.ultrasonic.ev3 = {
     title : 'ULTRASONIC',
     ports : [ [ 'Port 1', '1' ], [ 'Port 2', '2' ], [ 'Port 3', '3' ], [ 'Port 4', '4' ] ],
@@ -1471,6 +1520,7 @@ sensorsAll.arduino = [ sensors.out.arduino, sensors.key.arduino, sensors.timer.a
         sensors.motion.arduino, sensors.pulse.arduino, sensors.drop.arduino, sensors.rfid.arduino, sensors.gyro.arduino,
         sensors.accelerometer.arduino ];
 sensorsAll.festobionic = [ sensors.timer.arduino ];
+sensorsAll.raspberrypi = [ sensors.out.raspberrypi ];
 sensorsAll.nao = [ sensors.touch.nao, sensors.accelerometer.nao, sensors.gyro.nao, sensors.ultrasonic.nao, sensors.fsr.nao, sensors.electriccurrent.nao,
         sensors.detectface.nao, sensors.detectmark.nao ];
 sensorsAll.vorwerk = [ sensors.touch.vorwerk, sensors.accelerometer.vorwerk, sensors.ultrasonic.vorwerk, sensors.wall.vorwerk, sensors.drop_off.vorwerk ];
@@ -1478,7 +1528,7 @@ sensorsAll.wedo = [ sensors.key.wedo, sensors.gyro.wedo, sensors.infrared.wedo, 
 sensorsAll.sensebox = [ sensors.key.sensebox, sensors.light.sensebox, sensors.potentiometer.sensebox, sensors.sound.sensebox, sensors.ultrasonic.sensebox,
 sensors.humidity.sensebox, sensors.temperature.sensebox, sensors.lightveml.sensebox, sensors.accelerometer.sensebox, sensors.particle.sensebox, sensors.gps.sensebox,
         sensors.timer.sensebox, sensors.environmental.sensebox ];
-sensorsAll.edison = [ sensors.key.edison, sensors.infrared.edison, sensors.irseeker.edison, sensors.light.edison, sensors.sound.edison ];        
+sensorsAll.edison = [ sensors.key.edison, sensors.infrared.edison, sensors.irseeker.edison, sensors.light.edison, sensors.sound.edison ];
 
 function initSensors() {
     for ( var sensor in sensors) {

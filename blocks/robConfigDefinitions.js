@@ -214,6 +214,7 @@ confBlocks.ultrasonic.sensebox = {
 confBlocks.ultrasonic.raspberrypi = {
     title : 'ULTRASONIC',
     ports : [ [ 'trig', 'TRIG' ], [ 'echo', 'ECHO' ] ],
+    inputs: [ ['MAX_DISTANCE', 1.0], ['THRESHOLD', 0.5] ],
     pins : Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'],
     sensor : true,
     standardPins : [ '17', '18' ],
@@ -251,6 +252,7 @@ confBlocks.light.sensebox = {
 confBlocks.light.raspberrypi = {
     title : 'LIGHT',
     ports : [ [ 'output', 'OUTPUT' ] ],
+    inputs: [ ['THRESHOLD', 0.5] ],
     pins : Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'],
     sensor : true,
     standardPins : [ '18' ],
@@ -430,6 +432,7 @@ confBlocks.motion.arduino = {
 confBlocks.motion.raspberrypi = {
     title : 'MOTION',
     ports : [ [ 'output', 'OUTPUT' ] ],
+    inputs: [ ['THRESHOLD', 0.5] ],
     pins : Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'],
     sensor : true,
     standardPins : [ '4' ],
@@ -593,6 +596,15 @@ confBlocks.led.raspberrypi = {
     fixedPorts : [ [ 'GND', 'GND' ] ]
 };
 
+confBlocks.pwmled = {};
+confBlocks.pwmled.raspberrypi = {
+  title : 'PWMLED',
+  ports : [ [ 'input', 'INPUT' ] ],
+  pins : Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'],
+  sensor : false,
+  standardPins : [ '17' ],
+  fixedPorts : [ [ 'GND', 'GND' ] ]
+};
 confBlocks.buzzer = {};
 confBlocks.buzzer.arduino = {
     title : 'BUZZER',
@@ -635,9 +647,20 @@ confBlocks.buzzer.raspberrypi = {
     ports : [ [ 'input', 'INPUT' ] ],
     pins : Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'],
     sensor : false,
-    standardPins : [ '5' ],
+    standardPins : [ '3' ],
     fixedPorts : [ [ 'GND', 'GND' ] ]
 };
+
+confBlocks.tonalbuzzer = {};
+confBlocks.tonalbuzzer.raspberrypi = {
+  title : 'TONALBUZZER',
+  ports : [ [ 'input', 'INPUT' ] ],
+  pins : Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'],
+  sensor : false,
+  standardPins : [ '3' ],
+  fixedPorts : [ [ 'GND', 'GND' ] ]
+};
+
 
 confBlocks.sound = {};
 confBlocks.sound.calliope = {
@@ -646,6 +669,7 @@ confBlocks.sound.calliope = {
     sensor : true,
     inbuilt : true
 };
+
 confBlocks.sound.sensebox = {
     title : 'SOUND',
     ports : [ [ 'out', 'OUT' ] ],
@@ -720,6 +744,30 @@ confBlocks.stepmotor.arduino = {
     fixedPorts : [ [ 'GND', 'GND' ], [ 'VCC', '5V' ] ]
 };
 
+confBlocks.phasemotor = {};
+confBlocks.phasemotor.raspberrypi = {
+  title : 'PHASEMOTOR',
+  ports : [ [ 'phase', 'PHASE' ], ['enable', 'ENABLE'] ],
+  pins : Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'],
+  sensor : false,
+  standardPins : [ '12', '5' ],
+  fixedPorts : [ [ 'GND', 'GND' ], [ 'VCC', '5V' ] ]
+};
+
+confBlocks.robot = {};
+confBlocks.robot.raspberrypi = {
+  title : 'ROBOT',
+  ports : [ [ Blockly.Msg.MOTOR_LEFT+" " + Blockly.Msg.MOTOR_FOREWARD, 'LEFT-FORWARD' ],
+            [ Blockly.Msg.MOTOR_LEFT+" " + Blockly.Msg.MOTOR_BACKWARD, 'LEFT-BACKWARD' ],
+            [ Blockly.Msg.MOTOR_RIGHT+" " + Blockly.Msg.MOTOR_FOREWARD, 'RIGHT-FORWARD' ],
+            [ Blockly.Msg.MOTOR_RIGHT+" " + Blockly.Msg.MOTOR_BACKWARD, 'RIGHT-BACKWARD' ]
+           ],
+  pins : Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'],
+  sensor : false,
+  standardPins : [ '4', '14', '17', '18' ],
+  fixedPorts : [ [ 'GND', 'GND' ], [ 'VCC', '5V' ] ]
+};
+
 confBlocks.servo = {};
 confBlocks.servo.arduino = {
     title : 'SERVO',
@@ -753,10 +801,8 @@ confBlocks.servo.raspberrypi = {
 
 confBlocks.angularservo = {};
 confBlocks.angularservo.raspberrypi = {
-    title : 'SERVO',
-    inputs : [ [ 'MIN_ANGLE', -90 ], [ 'MAX_ANGLE', 90 ],
-      [ 'MIN_PULSE_WIDTH', 1/1000 ], [ 'MAX_PULSE_WIDTH', 2/1000 ],
-      ['FRAME_WIDTH', 20/1000] ],
+    title : 'ANGULARSERVO',
+    inputs : [ [ 'MIN_ANGLE', -90 ], [ 'MAX_ANGLE', 90 ],      [ 'MIN_PULSE_WIDTH', 1/1000 ], [ 'MAX_PULSE_WIDTH', 2/1000 ],      ['FRAME_WIDTH', 20/1000] ],
     ports : [ [ 'pin', 'PIN1' ] ],
     pins : Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'],
     sensor : false,
@@ -862,6 +908,15 @@ confBlocks.digitalout.raspberrypi = {
     sensor : true
 };
 
+confBlocks.smoothedout = {};
+confBlocks.smoothedout.raspberrypi = {
+  title : 'SMOOTHEDOUT',
+  inputs: [ ['THRESHOLD', 0.5] ],
+  ports : [ [ 'SENSOR_PIN', 'OUTPUT' ] ],
+  pins : Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'],
+  sensor : true
+};
+
 confBlocks.analogout = {};
 confBlocks.analogout.arduino = {
     title : 'ANALOGOUT',
@@ -903,6 +958,13 @@ confBlocks.digitalin.calliope = {
 confBlocks.digitalin.microbit = confBlocks.digitalin.calliope;
 confBlocks.digitalin.raspberrypi = {
     title : 'DIGITALIN',
+    ports : [ [ 'SENSOR_PIN', 'INPUT' ] ],
+    pins : Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'],
+    sensor : false,
+};
+confBlocks.pwmin = {};
+confBlocks.pwmin.raspberrypi = {
+    title : 'PWMIN',
     ports : [ [ 'SENSOR_PIN', 'INPUT' ] ],
     pins : Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'],
     sensor : false,

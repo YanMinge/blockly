@@ -1108,6 +1108,7 @@ Blockly.Msg.SENSOR_UNIT_CM = 'cm';
 Blockly.Msg.SENSOR_UNIT_MM = 'mm';
 Blockly.Msg.SENSOR_UNIT_DEGREE = '°';
 Blockly.Msg.SENSOR_UNIT_PASCAL = 'Pascal';
+Blockly.Msg.SENSOR_UNIT_S = 's';
 Blockly.Msg.SENSOR_UNIT_MS = 'ms';
 Blockly.Msg.SENSOR_UNIT_MILLIG = 'milli-g';
 Blockly.Msg.SENSOR_UNIT_OMEGA = 'ω';
@@ -1566,9 +1567,59 @@ Blockly.Msg.SENSOR_COLOURTCS3472_LIGHT_GETSAMPLE_TOOLTIP = Blockly.Msg.COLOUR_LI
 Blockly.Msg.SENSOR_COLOURTCS3472_RGB_GETSAMPLE_TOOLTIP = Blockly.Msg.COLOUR_RGB_GETSAMPLE_TOOLTIP;
 Blockly.Msg.SENSOR_DATA_READY = 'ready?';
 
+
+
+
+// RaspberryPi
 Blockly.Msg.MIN_ANGLE = 'Minimum angle';
 Blockly.Msg.MAX_ANGLE = 'Maximum angle';
 Blockly.Msg.MIN_PULSE_WIDTH = 'Minimum pulse width';
 Blockly.Msg.MAX_PULSE_WIDTH = 'Maximum pulse width';
 Blockly.Msg.FRAME_WIDTH = 'Frame width';
 Blockly.Msg.LIGHT_LDR = 'Light (LDR)';
+Blockly.Msg.TOGGLE = 'Toggle';
+Blockly.Msg.ON_TIME = 'on time (s)';
+Blockly.Msg.OFF_TIME = 'off time (s)';
+Blockly.Msg.LED_BLINK = 'LED Blink';
+Blockly.Msg.LED_PULSE = 'LED Pulse';
+Blockly.Msg.RGBLED_BLINK = 'RGB LED Blink';
+Blockly.Msg.RGBLED_PULSE = 'RGB LED Pulse';
+Blockly.Msg.N_TIMES = 'number of blinks';
+Blockly.Msg.LED_BLINK_TOOLTIP = 'Turn on the LED on a given port in blinking mode.';
+Blockly.Msg.LED_PULSE_TOOLTIP = 'Turn on the LED on a given port in pulse mode.';
+Blockly.Msg.FADE_IN_TIME = 'fade in time (s)';
+Blockly.Msg.FADE_OUT_TIME = 'fade out time (s)';
+Blockly.Msg.ON_COLOR = 'on color';
+Blockly.Msg.OFF_COLOR = 'off color';
+Blockly.Msg.SMOOTHED = 'smoothed';
+Blockly.Msg.ACTION_ANGULARSERVO = 'angular servo';
+
+Blockly.Msg.PIN_FORWARD = 'pin forward';
+Blockly.Msg.PIN_BACKWARD = 'pin backward';
+Blockly.Msg.THRESHOLD = 'threshold';
+Blockly.Msg.ACTION_PWMIN = 'Actor PWM';
+Blockly.Msg.ACTION_PHASEMOTOR = 'Phase Motor';
+Blockly.Msg.ACTION_SMOOTHEDOUT = 'Phase Motor';
+Blockly.Msg.SENSOR_SMOOTHEDOUT = 'Sensor Smoothed';
+Blockly.Msg.MAX_DISTANCE = 'Max distance';
+Blockly.Msg.MODE_IS_ACTIVE = 'is active';
+Blockly.Msg.MODE_LIGHT_DETECTED = 'light detected';
+Blockly.Msg.ACTION_PWMLED = 'PWM LED';
+Blockly.Msg.ACTION_TONALBUZZER = 'Tonal Buzzer';
+Blockly.Msg.BUZZER_BEEP = 'Buzzer Beep';
+Blockly.Msg.BUZZER_BEEP_TOOLTIP = "Turn on and off the buzzer for N time.";
+Blockly.Msg.BUZZER = 'buzzer';
+Blockly.Msg.BUZZER_ON = 'on';
+Blockly.Msg.BUZZER_OFF = 'off';
+Blockly.Msg.BUZZER_TOGGLE = 'toggle';
+Blockly.Msg.BUZZER_ON_TOOLTIP = '';
+Blockly.Msg.N_BEEPS = 'Number of beeps';
+
+Blockly.Msg.MIN = 'min';
+Blockly.Msg.MID = 'mid';
+Blockly.Msg.MAX = 'max';
+
+Blockly.Msg.MOTOR_POSITION = 'position';
+Blockly.Msg.ANGULAR_SERVO = 'Angular Servo';
+Blockly.Msg.ACTION_ROBOT = 'Robot';
+Blockly.Msg.TOOLBOX_ROBOT = 'Robot';
