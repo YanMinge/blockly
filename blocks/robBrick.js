@@ -99,6 +99,34 @@ Blockly.Blocks['robBrick_WeDo-Brick'] = {
     },
 };
 
+Blockly.Blocks['robBrick_MatataBot-Brick'] = {
+    init : function() {
+        var name = Blockly.Variables.findLegalName(Blockly.Msg.BRICKNAME_MATATABOT.charAt(0).toUpperCase(), this);
+        this.nameOld = name;
+        var nameField = new Blockly.FieldTextInput(name, this.validateName);
+        this.setColour('#BBBBBB');
+        this.setInputsInline(false);
+        this.setDeletable(false);
+        this.appendDummyInput().appendField(new Blockly.FieldLabel(this.workspace.device.toUpperCase(), 'brick_label'));
+        this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(nameField, 'VAR');
+        //this.setDeletable(false);
+    },
+    validateName : function(name) {
+        var block = this.sourceBlock_;
+        name = name.replace(/[\s\xa0]+/g, '').replace(/^ | $/g, '');
+        // no name set -> invalid
+        if (name === '')
+            return null;
+        if (!name.match(/^[a-zA-Z][a-zA-Z_\-:!§$%@=?\*+~#\.$/0-9]*$/))
+            return null;
+        // Ensure two identically-named variables don't exist.
+        name = Blockly.Variables.findLegalName(name, block);
+        Blockly.Variables.renameVariable(block.nameOld, name, this.sourceBlock_.workspace);
+        block.nameOld = name;
+        return name;
+    },
+};
+
 Blockly.Blocks['robBrick_senseBox-Brick'] = {
     /**
      * SenseBox brick.

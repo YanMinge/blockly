@@ -466,10 +466,16 @@ Blockly.Blocks['naoActions_rgbLeds'] = {
      */
     init : function() {
         this.setColour(Blockly.CAT_ACTION_RGB);
-        var led = new Blockly.FieldDropdown([ [ Blockly.Msg.NAO_LED_EYES, 'EYES' ], [ Blockly.Msg.MOTOR_LEFT + " " + Blockly.Msg.NAO_LED_EYE, 'LEFTEYE' ],
-                [ Blockly.Msg.MOTOR_RIGHT + " " + Blockly.Msg.NAO_LED_EYE, 'RIGHTEYE' ],
-                [ Blockly.Msg.MOTOR_LEFT + " " + Blockly.Msg.NAO_LED_FOOT, 'LEFTFOOT' ],
-                [ Blockly.Msg.MOTOR_RIGHT + " " + Blockly.Msg.NAO_LED_FOOT, 'RIGHTFOOT' ], [ Blockly.Msg.NAO_LED_ALL, 'ALL' ] ]);
+        if (this.workspace.device === 'matatabot') {
+            var led = new Blockly.FieldDropdown([ [ Blockly.Msg.NAO_LED_EYES, 'EYES' ], 
+                                                  [ Blockly.Msg.MOTOR_LEFT + " " + Blockly.Msg.NAO_LED_EYE, 'LEFTEYE' ],
+                                                  [ Blockly.Msg.MOTOR_RIGHT + " " + Blockly.Msg.NAO_LED_EYE, 'RIGHTEYE' ]]);
+        } else {
+            var led = new Blockly.FieldDropdown([ [ Blockly.Msg.NAO_LED_EYES, 'EYES' ], [ Blockly.Msg.MOTOR_LEFT + " " + Blockly.Msg.NAO_LED_EYE, 'LEFTEYE' ],
+                    [ Blockly.Msg.MOTOR_RIGHT + " " + Blockly.Msg.NAO_LED_EYE, 'RIGHTEYE' ],
+                    [ Blockly.Msg.MOTOR_LEFT + " " + Blockly.Msg.NAO_LED_FOOT, 'LEFTFOOT' ],
+                    [ Blockly.Msg.MOTOR_RIGHT + " " + Blockly.Msg.NAO_LED_FOOT, 'RIGHTFOOT' ], [ Blockly.Msg.NAO_LED_ALL, 'ALL' ] ]);
+        }
         this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.NAO_LED).appendField(led, 'LED');
         this.appendValueInput('COLOR').setCheck('Colour').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.BRICKLIGHT_COLOR);
         this.setPreviousStatement(true);
@@ -512,12 +518,18 @@ Blockly.Blocks['naoActions_ledOff'] = {
      */
     init : function() {
         this.setColour(Blockly.CAT_ACTION_RGB);
-        var led = new Blockly.FieldDropdown([ [ Blockly.Msg.NAO_LED_EYES, 'EYES' ], [ Blockly.Msg.MOTOR_LEFT + " " + Blockly.Msg.NAO_LED_EYE, 'LEFTEYE' ],
-                [ Blockly.Msg.MOTOR_RIGHT + " " + Blockly.Msg.NAO_LED_EYE, 'RIGHTEYE' ],
-                [ Blockly.Msg.MOTOR_LEFT + " " + Blockly.Msg.NAO_LED_FOOT, 'LEFTFOOT' ],
-                [ Blockly.Msg.MOTOR_RIGHT + " " + Blockly.Msg.NAO_LED_FOOT, 'RIGHTFOOT' ], [ Blockly.Msg.NAO_LED_EARS, 'EARS' ],
-                [ Blockly.Msg.MOTOR_LEFT + " " + Blockly.Msg.NAO_LED_EAR, 'LEFTEAR' ], [ Blockly.Msg.MOTOR_RIGHT + " " + Blockly.Msg.NAO_LED_EAR, 'RIGHTEAR' ],
-                [ Blockly.Msg.NAO_LED_CHEST, 'CHEST' ], [ Blockly.Msg.NAO_LED_HEAD, 'HEAD' ], [ Blockly.Msg.NAO_LED_ALL, 'ALL' ] ]);
+        if (this.workspace.device === 'matatabot') {
+            var led = new Blockly.FieldDropdown([ [ Blockly.Msg.NAO_LED_EYES, 'EYES' ], 
+                                                  [ Blockly.Msg.MOTOR_LEFT + " " + Blockly.Msg.NAO_LED_EYE, 'LEFTEYE' ],
+                                                  [ Blockly.Msg.MOTOR_RIGHT + " " + Blockly.Msg.NAO_LED_EYE, 'RIGHTEYE' ]]);
+        } else {
+            var led = new Blockly.FieldDropdown([ [ Blockly.Msg.NAO_LED_EYES, 'EYES' ], [ Blockly.Msg.MOTOR_LEFT + " " + Blockly.Msg.NAO_LED_EYE, 'LEFTEYE' ],
+                    [ Blockly.Msg.MOTOR_RIGHT + " " + Blockly.Msg.NAO_LED_EYE, 'RIGHTEYE' ],
+                    [ Blockly.Msg.MOTOR_LEFT + " " + Blockly.Msg.NAO_LED_FOOT, 'LEFTFOOT' ],
+                    [ Blockly.Msg.MOTOR_RIGHT + " " + Blockly.Msg.NAO_LED_FOOT, 'RIGHTFOOT' ], [ Blockly.Msg.NAO_LED_EARS, 'EARS' ],
+                    [ Blockly.Msg.MOTOR_LEFT + " " + Blockly.Msg.NAO_LED_EAR, 'LEFTEAR' ], [ Blockly.Msg.MOTOR_RIGHT + " " + Blockly.Msg.NAO_LED_EAR, 'RIGHTEAR' ],
+                    [ Blockly.Msg.NAO_LED_CHEST, 'CHEST' ], [ Blockly.Msg.NAO_LED_HEAD, 'HEAD' ], [ Blockly.Msg.NAO_LED_ALL, 'ALL' ] ]);
+        }
         this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.NAO_LED).appendField(led, 'LED');
         this.setInputsInline(true);
         this.appendDummyInput().appendField(Blockly.Msg.OFF);

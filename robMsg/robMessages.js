@@ -1620,3 +1620,6 @@ Blockly.Msg.MIN_PULSE_WIDTH = 'Minimum pulse width';
 Blockly.Msg.MAX_PULSE_WIDTH = 'Maximum pulse width';
 Blockly.Msg.FRAME_WIDTH = 'Frame width';
 Blockly.Msg.LIGHT_LDR = 'Light (LDR)';
+//Matatabot
+Blockly.Msg.BRICKNAME_MATATABOT = 'MatataBot';
+Blockly.Msg.MATATABOT_MOTOR_SPEED = 'speed (cm/s)';

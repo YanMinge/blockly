@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2021-01-21 11:08:30.055244",
+		"lastupdated": "2021-01-28 11:42:09.167304",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -1798,5 +1798,7 @@
 	"MIN_PULSE_WIDTH": "Minimum pulse width",
 	"MAX_PULSE_WIDTH": "Maximum pulse width",
 	"FRAME_WIDTH": "Frame width",
-	"LIGHT_LDR": "Light (LDR)"
+	"LIGHT_LDR": "Light (LDR)",
+	"BRICKNAME_MATATABOT": "MatataBot",
+	"MATATABOT_MOTOR_SPEED": "speed (cm/s)"
 }
